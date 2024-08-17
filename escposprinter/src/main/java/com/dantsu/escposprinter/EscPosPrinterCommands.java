@@ -1,7 +1,6 @@
 package com.dantsu.escposprinter;
 
-import android.graphics.Bitmap;
-
+import java.awt.image.BufferedImage;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 import java.util.EnumMap;
@@ -110,7 +109,7 @@ public class EscPosPrinterCommands {
      * @param gradient false : Black and white image, true : Grayscale image
      * @return Bytes contain the image in ESC/POS command
      */
-    public static byte[] bitmapToBytes(Bitmap bitmap, boolean gradient) {
+    public static byte[] bitmapToBytes(BufferedImage bitmap, boolean gradient) {
         int
             bitmapWidth = bitmap.getWidth(),
             bitmapHeight = bitmap.getHeight(),
@@ -133,7 +132,8 @@ public class EscPosPrinterCommands {
                 for (int k = 0; k < 8; k++) {
                     int posX = j + k;
                     if (posX < bitmapWidth) {
-                        int color = bitmap.getPixel(posX, posY),
+                        //int color = bitmap.getPixel(posX, posY),
+                        int color = bitmap.getRGB(posX, posY),
                             red = (color >> 16) & 255,
                             green = (color >> 8) & 255,
                             blue = color & 255;

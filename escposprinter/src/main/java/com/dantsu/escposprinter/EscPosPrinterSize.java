@@ -1,7 +1,7 @@
 package com.dantsu.escposprinter;
 
 
-import android.graphics.Bitmap;
+import java.awt.image.BufferedImage;
 
 public abstract class EscPosPrinterSize {
 
@@ -85,7 +85,7 @@ public abstract class EscPosPrinterSize {
      * @param gradient false : Black and white image, true : Grayscale image
      * @return Bytes contain the image in ESC/POS command
      */
-    public byte[] bitmapToBytes(Bitmap bitmap, boolean gradient) {
+    public byte[] bitmapToBytes(BufferedImage bitmap, boolean gradient) {
         boolean isSizeEdit = false;
         int bitmapWidth = bitmap.getWidth(),
                 bitmapHeight = bitmap.getHeight(),
@@ -104,7 +104,8 @@ public abstract class EscPosPrinterSize {
         }
 
         if (isSizeEdit) {
-            bitmap = Bitmap.createScaledBitmap(bitmap, bitmapWidth, bitmapHeight, true);
+            //TODO: fix bitmap
+            //bitmap = BufferedImage.createScaledBitmap(bitmap, bitmapWidth, bitmapHeight, true);
         }
 
         return EscPosPrinterCommands.bitmapToBytes(bitmap, gradient);

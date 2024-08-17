@@ -1,0 +1,5 @@
+# Created at 2024-08-17T11:55:12.133
+Boot Manifest-JAR contains absolute paths in classpath 'D:\my_prjs\escpos-java-library\escposprinter\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+'other' has different root
+
